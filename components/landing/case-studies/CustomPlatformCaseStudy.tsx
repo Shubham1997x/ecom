@@ -15,9 +15,9 @@ export function CustomPlatformCaseStudy() {
   ];
 
   const metrics = [
-    { value: "+52%", label: "Conversion Rate", percentage: 52, color: "bg-blue-500", textColor: "text-blue-500" },
-    { value: "1.5s", label: "Load Time", percentage: 95, color: "bg-green-500", textColor: "text-green-500" },
-    { value: "+71%", label: "Revenue Growth", percentage: 71, color: "bg-purple-500", textColor: "text-purple-500" },
+    { value: "+52%", label: "Conversion Rate", percentage: 52, color: "bg-primary-cta", textColor: "text-primary-cta" },
+    { value: "1.5s", label: "Load Time", percentage: 95, color: "bg-primary-cta", textColor: "text-primary-cta" },
+    { value: "+71%", label: "Revenue Growth", percentage: 71, color: "bg-primary-cta", textColor: "text-primary-cta" },
   ];
 
   return (

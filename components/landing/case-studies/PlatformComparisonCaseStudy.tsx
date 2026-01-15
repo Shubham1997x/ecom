@@ -137,13 +137,8 @@ export function PlatformComparisonCaseStudy() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  const contactSection = document.querySelector("#contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="flex items-center gap-2 px-6 py-3 bg-primary-cta text-white rounded-lg font-medium hover:bg-primary-cta-hover transition-colors whitespace-nowrap"
+                onClick={() => window.open("https://calendly.com/wantace-ai/discovery-call", "_blank", "noopener,noreferrer")}
+                className="flex items-center gap-2 px-6 py-3 bg-primary-cta text-white rounded-lg font-medium hover:bg-primary-cta-hover transition-colors whitespace-nowrap cursor-pointer"
               >
                 Get Free Consultation
                 <ArrowRight className="w-4 h-4" />

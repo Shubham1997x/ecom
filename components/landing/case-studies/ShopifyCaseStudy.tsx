@@ -15,9 +15,9 @@ export function ShopifyCaseStudy() {
   ];
 
   const metrics = [
-    { value: "+45%", label: "Conversion Rate", percentage: 45, color: "bg-blue-500", textColor: "text-blue-500" },
-    { value: "2.1s", label: "Load Time", percentage: 85, color: "bg-green-500", textColor: "text-green-500" },
-    { value: "+62%", label: "Revenue Growth", percentage: 62, color: "bg-purple-500", textColor: "text-purple-500" },
+    { value: "+45%", label: "Conversion Rate", percentage: 45, color: "bg-primary-cta", textColor: "text-primary-cta" },
+    { value: "2.1s", label: "Load Time", percentage: 85, color: "bg-primary-cta", textColor: "text-primary-cta" },
+    { value: "+62%", label: "Revenue Growth", percentage: 62, color: "bg-primary-cta", textColor: "text-primary-cta" },
   ];
 
   return (

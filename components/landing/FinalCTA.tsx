@@ -137,9 +137,9 @@ export const FinalCTA = () => {
             >
               <Button
                 type="button"
-                onClick={() => window.location.href = "#"}
+                onClick={() => window.open("https://calendly.com/wantace-ai/discovery-call", "_blank", "noopener,noreferrer")}
                 className="bg-primary-cta text-white text-base font-light px-8 sm:px-10 hover:bg-primary-cta-hover w-full sm:w-auto py-4 sm:py-6 group relative overflow-hidden shadow-lg"
-                aria-label="Get started with your e-commerce project"
+                aria-label="Schedule a discovery call"
               >
                 <span className="relative z-10">Get Started</span>
               </Button>

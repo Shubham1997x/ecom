@@ -34,17 +34,7 @@ export const Navbar = () => {
   };
 
   const handleContact = () => {
-    const contactSection = document.querySelector("#contact");
-    if (contactSection) {
-      const offset = 80;
-      const elementPosition = contactSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+    window.open("https://calendly.com/wantace-ai/discovery-call", "_blank", "noopener,noreferrer");
   };
 
   useEffect(() => {

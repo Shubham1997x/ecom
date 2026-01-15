@@ -134,16 +134,17 @@ export function HowItWorks() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <motion.button
-            type="button"
-            onClick={() => window.location.href = "#"}
+          <motion.a
+            href="https://calendly.com/wantace-ai/discovery-call"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative px-8 py-4 bg-primary-cta hover:bg-primary-cta-hover text-white rounded-xl text-base font-light shadow-lg cursor-pointer"
-            aria-label="Get started with your project"
+            className="group relative inline-block px-8 py-4 bg-primary-cta hover:bg-primary-cta-hover text-white rounded-xl text-base font-light shadow-lg cursor-pointer"
+            aria-label="Schedule a discovery call"
           >
             <span className="relative z-10">Start Your Project</span>
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

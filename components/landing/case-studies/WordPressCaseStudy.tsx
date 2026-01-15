@@ -15,9 +15,9 @@ export function WordPressCaseStudy() {
   ];
 
   const metrics = [
-    { value: "+38%", label: "Conversion Rate", percentage: 38, color: "bg-blue-500", textColor: "text-blue-500" },
-    { value: "1.8s", label: "Load Time", percentage: 90, color: "bg-green-500", textColor: "text-green-500" },
-    { value: "+55%", label: "Revenue Growth", percentage: 55, color: "bg-purple-500", textColor: "text-purple-500" },
+    { value: "+38%", label: "Conversion Rate", percentage: 38, color: "bg-primary-cta", textColor: "text-primary-cta" },
+    { value: "1.8s", label: "Load Time", percentage: 90, color: "bg-primary-cta", textColor: "text-primary-cta" },
+    { value: "+55%", label: "Revenue Growth", percentage: 55, color: "bg-primary-cta", textColor: "text-primary-cta" },
   ];
 
   return (

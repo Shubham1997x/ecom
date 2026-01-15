@@ -18,7 +18,7 @@ export const siteConfig = {
     { label: "Custom", href: "#custom-platform" },
     { label: "Comparison", href: "#comparison" },
     { label: "Solutions", href: "#solutions" },
-    { label: "Results", href: "#results" },
+    { label: "How It Works", href: "#how-it-works" },
     { label: "Testimonials", href: "#reviews" },
     { label: "FAQ", href: "#faq" },
   ],
@@ -33,14 +33,14 @@ export const siteConfig = {
   socialLinks: {
     twitter: "https://twitter.com",
     facebook: "https://facebook.com",
-    instagram: "https://instagram.com",
-    github: "https://github.com",
+    instagram: "https://instagram.com/wantacelabs",
+    github: "https://github.com/wantace",
   },
 
   // Footer
   footer: {
     description: "Custom e-commerce website solutions for businesses. We specialize in Shopify and WordPress development, delivering high-converting online stores that drive growth.",
-    copyright: "© Copyright 2024, All Rights Reserved",
+    copyright: "© Copyright 2025, All Rights Reserved",
   },
 
   // Meta

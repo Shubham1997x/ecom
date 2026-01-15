@@ -14,6 +14,20 @@ export function Hero() {
     }
   };
 
+  const handleViewCaseStudies = () => {
+    const caseStudies = document.querySelector("#case-studies");
+    if (caseStudies) {
+      const offset = 80;
+      const elementPosition = caseStudies.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden to-white">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -80,13 +94,8 @@ export function Hero() {
             >
               <motion.button
                 type="button"
-                onClick={() => {
-                  const contactSection = document.querySelector("#contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                aria-label="Get started with your project"
+                onClick={handleViewCaseStudies}
+                aria-label="View case studies"
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 className="group relative w-full sm:w-auto justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-primary-cta hover:bg-primary-cta-hover text-white rounded-xl text-base font-light hover:shadow-sm hover:shadow-primary-cta/50 transition-all duration-300 overflow-hidden cursor-pointer flex"
               >
@@ -102,10 +111,11 @@ export function Hero() {
                   aria-hidden="true"
                 ></span>
               </motion.button>
-              <motion.button
-                type="button"
-                onClick={handleTryNow}
-                aria-label="View our solutions"
+              <motion.a
+                href="https://calendly.com/wantace-ai/discovery-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Schedule a discovery call"
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 className="group relative w-full sm:w-auto justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-white border-2 border-gray-300 text-gray-700 hover:bg-gray-50 rounded-xl text-base font-light hover:shadow-sm hover:shadow-gray-300/40 transition-all duration-300 overflow-hidden cursor-pointer flex"
               >
@@ -120,7 +130,7 @@ export function Hero() {
                   className="absolute inset-0 bg-gray-200/40 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
                   aria-hidden="true"
                 ></span>
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             <motion.div
