@@ -84,12 +84,11 @@ export const Navbar = () => {
   return (
     <motion.nav
       initial={{ y: 0 }}
-      className={`${showRectangle ? "fixed" : "absolute"} top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        !showRectangle ? "bg-white/80 backdrop-blur-sm" : "bg-transparent"
-      }`}
+      className={`${showRectangle ? "fixed" : "absolute"} top-0 left-0 right-0 z-50 transition-all duration-300 ${!showRectangle ? "bg-white/80 backdrop-blur-sm" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 relative">
-        <div className="lg:hidden absolute right-4 top-1/2 -translate-y-1/2 z-10">
+        <div className="xl:hidden absolute right-4 top-1/2 -translate-y-1/2 z-10">
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Toggle menu">
@@ -167,7 +166,7 @@ export const Navbar = () => {
                 </div>
               </motion.a>
 
-              <div className="hidden border border-gray-200 rounded-md px-4 py-1 lg:flex items-center gap-4 xl:gap-5 absolute left-1/2 -translate-x-1/2">
+              <div className="hidden border border-gray-200 rounded-md px-4 py-1 xl:flex items-center gap-4 2xl:gap-5 absolute left-1/2 -translate-x-1/2">
                 {navItems.map((item) => {
                   const sectionId = item.href.replace("#", "");
                   const isActive = activeSection === sectionId;
@@ -176,25 +175,23 @@ export const Navbar = () => {
                       key={item.label}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                      className={`relative text-sm lg:text-base font-medium transition-colors duration-200 cursor-pointer group whitespace-nowrap focus:outline-none ${
-                        isActive
+                      className={`relative text-sm xl:text-base font-medium transition-colors duration-200 cursor-pointer group whitespace-nowrap focus:outline-none ${isActive
                           ? "text-primary-cta"
                           : "text-gray-700 hover:text-gray-900"
-                      }`}
+                        }`}
                       aria-current={isActive ? "page" : undefined}
                     >
                       {item.label}
                       <span
-                        className={`absolute bottom-0 left-0 h-px bg-primary-cta transition-all duration-300 ${
-                          isActive ? "w-full" : "w-0 group-hover:w-full"
-                        }`}
+                        className={`absolute bottom-0 left-0 h-px bg-primary-cta transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"
+                          }`}
                       ></span>
                     </a>
                   );
                 })}
               </div>
 
-              <div className="hidden lg:block">
+              <div className="hidden xl:block">
                 <Button
                   onClick={handleContact}
                   className="bg-primary-cta hover:bg-primary-cta-hover text-white text-base font-medium px-4 py-2 h-auto"
@@ -207,12 +204,12 @@ export const Navbar = () => {
           )}
 
           {showRectangle && (
-            <div className="hidden lg:flex items-center w-full justify-center">
+            <div className="hidden xl:flex items-center w-full justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className="bg-gray-100 border border-gray-200 rounded-lg px-2 py-1 flex items-center gap-3 lg:gap-4"
+                className="bg-gray-100 border border-gray-200 rounded-lg px-2 py-1 flex items-center gap-3 2xl:gap-4"
               >
                 <motion.a
                   href="/"
@@ -221,14 +218,7 @@ export const Navbar = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Logo className="h-7 w-7 sm:h-8 sm:w-8 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="flex flex-col min-w-0">
-                    <span className="font-bold text-sm text-foreground leading-tight">
-                      {siteConfig.logoText}
-                    </span>
-                    <span className="text-xs text-gray-500 leading-tight">
-                      by Wantace
-                    </span>
-                  </div>
+
                 </motion.a>
 
                 {navItems.map((item) => {
@@ -239,19 +229,17 @@ export const Navbar = () => {
                       key={item.label}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                      className={`relative text-sm lg:text-base font-medium transition-colors duration-200 cursor-pointer group whitespace-nowrap focus:outline-none rounded px-1 ${
-                        isActive
+                      className={`relative text-sm xl:text-base font-medium transition-colors duration-200 cursor-pointer group whitespace-nowrap focus:outline-none rounded px-1 ${isActive
                           ? "text-primary-cta"
                           : "text-gray-700 hover:text-gray-900"
-                      }`}
+                        }`}
                       aria-label={`Navigate to ${item.label} section`}
                       aria-current={isActive ? "page" : undefined}
                     >
                       {item.label}
                       <span
-                        className={`absolute bottom-0 left-0 h-px bg-primary-cta transition-all duration-300 ${
-                          isActive ? "w-full" : "w-0 group-hover:w-full"
-                        }`}
+                        className={`absolute bottom-0 left-0 h-px bg-primary-cta transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"
+                          }`}
                         aria-hidden="true"
                       ></span>
                     </a>

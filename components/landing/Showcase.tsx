@@ -162,7 +162,7 @@ export function Showcase() {
                   <ul className="space-y-2.5 sm:space-y-3">
                     {study.features.map((item, i) => (
                       <li key={i} className="flex items-start gap-2.5 sm:gap-3">
-                        <div className="w-5 h-5 sm:w-6 sm:h-6 bg-primary-cta/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 bg-primary-cta/20 rounded-full flex items-center justify-center shrink-0 mt-0.5">
                           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary-cta rounded-full" />
                         </div>
                         <span className="text-sm sm:text-base text-gray-600">
@@ -201,7 +201,7 @@ export function Showcase() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  <div className="w-full h-64 sm:h-80 md:h-96 bg-gradient-to-br from-primary-cta/10 to-primary-cta/5 rounded-lg flex items-center justify-center border border-gray-200">
+                  <div className="w-full h-64 sm:h-80 md:h-96 bg-linear-to-br from-primary-cta/10 to-primary-cta/5 rounded-lg flex items-center justify-center border border-gray-200">
                     <div className="text-center">
                       <Icon className="w-16 h-16 text-primary-cta/40 mx-auto mb-2" />
                       <span className="text-gray-400 text-sm">Case Study Image</span>

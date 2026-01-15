@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, CheckCircle2, BarChart3, ArrowRight, Clock } from "lucide-react";
+import { BarChart3, ArrowRight, Clock } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export function PlatformComparisonCaseStudy() {
@@ -14,9 +14,9 @@ export function PlatformComparisonCaseStudy() {
   ];
 
   const comparisonData = [
-    { platform: "Shopify", bestFor: "Quick setup, app ecosystem", complexity: "Low", cost: "$$" },
-    { platform: "WordPress", bestFor: "Flexibility, customization", complexity: "Medium", cost: "$$$" },
-    { platform: "Custom", bestFor: "Unique requirements", complexity: "High", cost: "$$$$" },
+    { platform: "Shopify", bestFor: "Quick setup, app ecosystem", complexity: "Low" },
+    { platform: "WordPress", bestFor: "Flexibility, customization", complexity: "Medium" },
+    { platform: "Custom", bestFor: "Unique requirements", complexity: "High" },
   ];
 
   return (
@@ -30,9 +30,6 @@ export function PlatformComparisonCaseStudy() {
           className="mb-12 md:mb-16"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary-cta/10">
-              <TrendingUp className="w-6 h-6 text-primary-cta" />
-            </div>
             <div className="px-4 py-1.5 bg-primary-cta/10 text-primary-cta rounded-full text-sm font-medium">
               Case Study 04
             </div>
@@ -55,8 +52,8 @@ export function PlatformComparisonCaseStudy() {
             className="space-y-6"
           >
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900">Our Services</h3>
-              <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-gray-900">Our Services</h3>
+              <div className="space-y-2.5">
                 {services.map((service, index) => (
                   <motion.div
                     key={index}
@@ -64,14 +61,10 @@ export function PlatformComparisonCaseStudy() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    className="flex items-start gap-3 group"
+                    className="flex items-center gap-3"
                   >
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-6 h-6 rounded-lg bg-primary-cta/10 flex items-center justify-center group-hover:bg-primary-cta/20 transition-colors">
-                        <CheckCircle2 className="w-4 h-4 text-primary-cta" />
-                      </div>
-                    </div>
-                    <span className="text-base text-gray-700 leading-relaxed pt-0.5">{service}</span>
+                    <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary-cta"></div>
+                    <span className="text-sm text-gray-700">{service}</span>
                   </motion.div>
                 ))}
               </div>
@@ -111,7 +104,7 @@ export function PlatformComparisonCaseStudy() {
                     transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                     className="p-4 rounded-lg border border-gray-200 hover:border-primary-cta/30 transition-colors"
                   >
-                    <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-start justify-between">
                       <div>
                         <div className="font-semibold text-gray-900 mb-1">{item.platform}</div>
                         <div className="text-sm text-gray-600">{item.bestFor}</div>
@@ -120,10 +113,6 @@ export function PlatformComparisonCaseStudy() {
                         <div className="text-xs text-gray-500 mb-1">Complexity</div>
                         <div className="text-sm font-medium text-gray-700">{item.complexity}</div>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
-                      <span className="text-xs text-gray-500">Investment:</span>
-                      <span className="text-sm font-semibold text-primary-cta">{item.cost}</span>
                     </div>
                   </motion.div>
                 ))}

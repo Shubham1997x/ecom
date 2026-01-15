@@ -2,35 +2,31 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, DollarSign, Calendar } from "lucide-react";
 
 const stats = [
   {
     value: 45,
     suffix: "%",
-    title: "Average conversion increase",
-    description: "Across all our e-commerce projects",
-    icon: TrendingUp,
-    vsIndustry: "vs 2.5% industry avg",
+    title: "Conversion increase",
+    vsIndustry: "vs 2.5% avg",
     color: "from-blue-500/10 to-blue-600/5",
+    graphicType: "conversion",
   },
   {
     value: 62,
     suffix: "%",
     title: "Revenue growth",
-    description: "For businesses using our solutions",
-    icon: DollarSign,
-    vsIndustry: "vs 18% industry avg",
+    vsIndustry: "vs 18% avg",
     color: "from-blue-500/10 to-blue-600/5",
+    graphicType: "revenue",
   },
   {
     value: 1.8,
     suffix: "s",
-    title: "Average page load time",
-    description: "Optimized for speed and performance",
-    icon: Calendar,
-    vsIndustry: "vs 3.5s industry avg",
+    title: "Page load time",
+    vsIndustry: "vs 3.5s avg",
     color: "from-blue-500/10 to-blue-600/5",
+    graphicType: "speed",
   },
 ];
 
@@ -116,7 +112,6 @@ export const Stats = ({ id = "stats" }: StatsProps) => {
           {stats.map((stat, index) => {
             const startValue = Math.max(0, stat.value - 10);
             const { count, ref } = useCountUp(stat.value, 2000, startValue);
-            const Icon = stat.icon;
 
             return (
               <motion.div
@@ -134,50 +129,105 @@ export const Stats = ({ id = "stats" }: StatsProps) => {
                 className="group relative p-6 sm:p-8 rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-100 hover:border-primary-cta/20"
               >
                 <div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${stat.color} opacity-50 pointer-events-none`}
+                  className={`absolute inset-0 rounded-2xl bg-linear-to-br ${stat.color} opacity-50 pointer-events-none`}
                 />
                 <div className="relative z-10">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 rounded-full bg-primary-cta/10 group-hover:bg-primary-cta/20 transition-colors duration-300">
-                      <Icon className="w-6 h-6 text-primary-cta" />
-                    </div>
+                  {/* Graphics */}
+                  <div className="flex justify-center mb-6 h-32">
+                    {stat.graphicType === "conversion" && (
+                      <svg className="w-full h-full max-w-32" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                          <linearGradient id="gradient-conversion" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#3b82f6" />
+                            <stop offset="100%" stopColor="#2563eb" />
+                          </linearGradient>
+                        </defs>
+                        {/* Upward arrow/trend */}
+                        <motion.path
+                          d="M 50 150 L 100 50 L 150 150"
+                          fill="none"
+                          stroke="url(#gradient-conversion)"
+                          strokeWidth="8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          whileInView={{ pathLength: 1, opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: 0.3 }}
+                        />
+                        <motion.line
+                          x1="50"
+                          y1="150"
+                          x2="150"
+                          y2="150"
+                          stroke="url(#gradient-conversion)"
+                          strokeWidth="6"
+                          strokeLinecap="round"
+                          initial={{ pathLength: 0 }}
+                          whileInView={{ pathLength: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: 0.5 }}
+                        />
+                      </svg>
+                    )}
+                    {stat.graphicType === "revenue" && (
+                      <svg className="w-full h-full max-w-32" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                          <linearGradient id="gradient-revenue" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#3b82f6" />
+                            <stop offset="100%" stopColor="#2563eb" />
+                          </linearGradient>
+                        </defs>
+                        {/* Dollar sign */}
+                        <motion.path
+                          d="M 100 40 L 100 160 M 80 80 Q 80 60 100 60 Q 120 60 120 80 Q 120 100 100 100 Q 80 100 80 120 Q 80 140 100 140 Q 120 140 120 120"
+                          fill="none"
+                          stroke="url(#gradient-revenue)"
+                          strokeWidth="8"
+                          strokeLinecap="round"
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          whileInView={{ pathLength: 1, opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.2, delay: 0.3 }}
+                        />
+                      </svg>
+                    )}
+                    {stat.graphicType === "speed" && (
+                      <svg className="w-full h-full max-w-32" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                          <linearGradient id="gradient-speed" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#3b82f6" />
+                            <stop offset="100%" stopColor="#2563eb" />
+                          </linearGradient>
+                        </defs>
+                        {/* Lightning bolt */}
+                        <motion.path
+                          d="M 100 40 L 75 90 L 95 90 L 70 160 L 120 80 L 105 80 L 130 40 Z"
+                          fill="url(#gradient-speed)"
+                          initial={{ opacity: 0, scale: 0.5 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.6, delay: 0.3 }}
+                        />
+                      </svg>
+                    )}
                   </div>
 
-                  <h3 className="font-bold text-3xl sm:text-4xl mb-3 text-primary-cta">
+                  <h3 className="font-bold text-4xl sm:text-5xl mb-2 text-primary-cta">
                     {stat.suffix === "s"
                       ? `${count.toFixed(1)}${stat.suffix}`
                       : stat.suffix === "x"
-                      ? `${count.toFixed(1)}${stat.suffix}`
-                      : `${Math.round(count)}${stat.suffix}`}
+                        ? `${count.toFixed(1)}${stat.suffix}`
+                        : `${Math.round(count)}${stat.suffix}`}
                   </h3>
 
-                  <p className="text-lg font-semibold text-gray-900 mb-2">
+                  <p className="text-base font-medium text-gray-900 mb-3">
                     {stat.title}
                   </p>
 
-                  <p className="text-base text-gray-600 font-normal leading-relaxed mb-3">
-                    {stat.description}
+                  <p className="text-xs text-gray-500">
+                    {stat.vsIndustry}
                   </p>
-
-                  <div className="pt-3 border-t border-gray-200/50">
-                    <p className="text-xs text-gray-500 font-medium">
-                      {stat.vsIndustry}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 h-1 bg-gray-200 rounded-full overflow-hidden">
-                    <motion.div
-                      className="h-full bg-gradient-to-r from-primary-cta to-primary-cta-hover rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "100%" }}
-                      viewport={{ once: true }}
-                      transition={{
-                        delay: 0.3 + index * 0.1,
-                        duration: 1,
-                        ease: "easeOut",
-                      }}
-                    />
-                  </div>
                 </div>
               </motion.div>
             );

@@ -37,9 +37,9 @@ export default function Home() {
         <PlatformComparisonCaseStudy />
         <FinalCTA />
         <HowItWorks />
-        <LivePreview />
+        {/* <LivePreview /> */}
         <Features id="solutions" />
-        <Stats id="results" />
+        {/* <Stats id="results" /> */}
         <Testimonials />
         <FAQ />
       </main>

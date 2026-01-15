@@ -2,6 +2,7 @@
 
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Hero() {
 
@@ -58,11 +59,7 @@ export function Hero() {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="text-4xl lg:text-5xl text-gray-900 leading-tight font-normal"
               >
-                Custom E-Commerce Websites
-                <span className=" bg-clip-text text-primary-cta">
-                  {" "}
-                  That Drive Sales
-                </span>
+                Elevate Your Online Business
               </motion.h1>
 
               <motion.p
@@ -71,7 +68,7 @@ export function Hero() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="text-lg text-gray-700 leading-relaxed max-w-xl"
               >
-                Expert Shopify and WordPress development for e-commerce businesses. See real case studies and transform your online store into a revenue-generating machine.
+                Discover how our expert website solutions can transform your Shopify, WordPress, and custom sites into powerful online platforms.
               </motion.p>
             </div>
 
@@ -113,7 +110,7 @@ export function Hero() {
                 className="group relative w-full sm:w-auto justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-white border-2 border-gray-300 text-gray-700 hover:bg-gray-50 rounded-xl text-base font-light hover:shadow-sm hover:shadow-gray-300/40 transition-all duration-300 overflow-hidden cursor-pointer flex"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  Our Solutions
+                  Start your Journey
                   <ArrowRight
                     className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                     aria-hidden="true"
@@ -158,11 +155,15 @@ export function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="relative flex justify-center items-center"
           >
-            <div className="w-full aspect-square max-w-lg mx-auto rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 flex items-center justify-center">
-              <img
-                src="https://placehold.co/600x600/e5e7eb/9ca3af?text=Hero+Image"
-                alt="Hero image placeholder"
-                className="w-full h-full object-cover"
+            <div className="w-full max-w-lg mx-auto rounded-2xl overflow-hidden bg-gray-100 border border-gray-200">
+              <Image
+                src="/images/Wantace.png"
+                alt="E-commerce solutions hero"
+                width={600}
+                height={600}
+                className="w-full h-auto object-contain"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </motion.div>

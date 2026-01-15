@@ -1,23 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function HowItWorks() {
   const steps = [
     {
       title: "Consultation & Planning",
-      description:
-        "We start with a detailed consultation to understand your business, goals, and requirements. We analyze your target audience and create a strategic plan for your e-commerce website.",
+      description: "Understand your business and create a strategic plan.",
+      number: "01",
+      graphicType: "consultation",
     },
     {
       title: "Design & Development",
-      description:
-        "Our team creates custom designs and develops your website using best practices. We focus on user experience, conversion optimization, and mobile responsiveness throughout the process.",
+      description: "Build custom solutions with best practices.",
+      icon: "wand",
+      number: "02",
+      graphicType: "development",
     },
     {
       title: "Launch & Optimization",
-      description:
-        "After thorough testing, we launch your store and provide ongoing optimization. We monitor performance, make improvements, and ensure your website continues to drive results.",
+      description: "Launch your store and optimize for results.",
+      number: "03",
+      graphicType: "launch",
     },
   ];
 
@@ -41,55 +46,85 @@ export function HowItWorks() {
             Our Process
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-700 leading-relaxed"
+            className="text-base text-gray-600"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            From initial consultation to successful launch and beyond
+            Simple, streamlined process
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              className="relative z-10"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              {index < steps.length - 1 && (
-                <motion.div
-                  className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-200 z-0 transform -translate-y-1/2"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-                />
-              )}
-              <motion.div
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.3 }}
-                className="relative bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 h-full flex flex-col"
-              >
-                <div className="flex-1">
-                  <h3 className="text-2xl lg:text-3xl text-gray-900 mb-4 font-normal leading-tight">
-                    {step.title}
-                  </h3>
-                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    {step.description}
-                  </p>
-                </div>
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto relative">
+          {steps.map((step, index) => {
+            const getImageUrl = () => {
+              switch (step.graphicType) {
+                case "consultation":
+                  return "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80";
+                case "development":
+                  return "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop&q=80";
+                case "launch":
+                  return "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop&q=80";
+                default:
+                  return "";
+              }
+            };
 
-                <div className="mt-auto h-40 rounded-xl overflow-hidden flex items-center justify-center bg-gradient-to-br from-primary-cta/10 to-primary-cta/5">
-                  <span className="text-gray-400 text-sm">Preview</span>
-                </div>
+            return (
+              <motion.div
+                key={index}
+                className="relative z-10"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative bg-white rounded-2xl p-6 lg:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 h-full flex flex-col"
+                >
+                  {/* Graphics Section - Major */}
+                  <div className="h-48 lg:h-56 rounded-md overflow-hidden relative flex items-center justify-center bg-white mb-6">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.15 + 0.2 }}
+                      className="relative w-full h-full"
+                    >
+                      <Image
+                        src={getImageUrl()}
+                        alt={step.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
+                    </motion.div>
+                    {/* Step Number */}
+                    <div className="absolute top-3 right-3 z-10">
+                      <span className="text-3xl font-light text-white opacity-30 drop-shadow-lg">
+                        {step.number}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Text Section - Minor */}
+                  <div className="flex-1">
+                    <h3 className="text-xl lg:text-2xl text-gray-900 mb-2 font-medium leading-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         <motion.div
