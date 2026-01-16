@@ -6,10 +6,8 @@ import { WordPressCaseStudy } from "@/components/landing/case-studies/WordPressC
 import { CustomPlatformCaseStudy } from "@/components/landing/case-studies/CustomPlatformCaseStudy";
 import { PlatformComparisonCaseStudy } from "@/components/landing/case-studies/PlatformComparisonCaseStudy";
 import { HowItWorks } from "@/components/landing/HowItWorks";
-import { LivePreview } from "@/components/landing/LivePreview";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Features } from "@/components/landing/Features";
-import { Stats } from "@/components/landing/Stats";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { FAQ } from "@/components/landing/FAQ";
 import { Footer } from "@/components/landing/Footer";
@@ -37,9 +35,7 @@ export default function Home() {
         <PlatformComparisonCaseStudy />
         <FinalCTA />
         <HowItWorks />
-        {/* <LivePreview /> */}
         <Features id="solutions" />
-        {/* <Stats id="results" /> */}
         <Testimonials />
         <FAQ />
       </main>

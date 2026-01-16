@@ -1,0 +1,79 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { AlertCircle, Home } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Log error to console in development
+    console.error("Route error:", error);
+  }, [error]);
+
+  return (
+    <div
+      className="flex min-h-screen items-center justify-center bg-gray-50 px-4"
+      role="alert"
+      aria-live="assertive"
+    >
+      <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
+        <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" aria-hidden="true" />
+        <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          Something went wrong
+        </h2>
+        <p className="text-gray-600 mb-6">
+          We're sorry, but something unexpected happened. Please try refreshing the page or contact support if the problem persists.
+        </p>
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-3 justify-center">
+            <Button
+              onClick={reset}
+              className="bg-primary-cta hover:bg-primary-cta-hover focus:outline-none focus:ring-2 focus:ring-primary-cta focus:ring-offset-2"
+              aria-label="Try again to recover from error"
+            >
+              Try Again
+            </Button>
+            <Button
+              onClick={() => window.location.reload()}
+              variant="outline"
+              aria-label="Refresh the entire page"
+            >
+              Refresh Page
+            </Button>
+          </div>
+          <Button
+            onClick={() => router.push("/")}
+            variant="outline"
+            className="w-full"
+            aria-label="Go back to homepage"
+          >
+            <Home className="w-4 h-4 mr-2" />
+            Go Back to Homepage
+          </Button>
+        </div>
+        {process.env.NODE_ENV === "development" && error && (
+          <details className="mt-4 text-left">
+            <summary className="cursor-pointer text-sm text-gray-500 mb-2 hover:text-gray-700">
+              Error Details (Development Only)
+            </summary>
+            <pre className="text-xs bg-gray-100 p-3 rounded overflow-auto max-h-40">
+              {error.message}
+              {error.stack && `\n\n${error.stack}`}
+              {error.digest && `\n\nDigest: ${error.digest}`}
+            </pre>
+          </details>
+        )}
+      </div>
+    </div>
+  );
+}
+

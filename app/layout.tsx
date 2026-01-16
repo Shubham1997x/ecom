@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { QueryProvider } from "@/components/QueryProvider";
 import { Toaster } from "sonner";
 import ErrorBoundaryWrapper from "./error-boundary";
 import { siteConfig } from "@/config/siteConfig";
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
   title: siteConfig.meta.title,
   description: siteConfig.meta.description,
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.svg",
   },
 };
 
@@ -32,10 +31,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ErrorBoundaryWrapper>
-          <QueryProvider>
-            {children}
-            <Toaster position="top-right" richColors />
-          </QueryProvider>
+          {children}
+          <Toaster position="top-right" richColors />
         </ErrorBoundaryWrapper>
       </body>
     </html>

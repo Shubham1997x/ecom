@@ -1,8 +1,12 @@
+"use client";
+
 import { FallbackProps } from "react-error-boundary";
 import { Button } from "@/components/ui/button";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, Home } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
+  const router = useRouter();
   return (
     <div
       className="flex min-h-screen items-center justify-center bg-gray-50 px-4"
@@ -17,20 +21,31 @@ export function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
         <p className="text-gray-600 mb-6">
           We're sorry, but something unexpected happened. Please try refreshing the page or contact support if the problem persists.
         </p>
-        <div className="flex gap-3 justify-center">
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-3 justify-center">
+            <Button
+              onClick={resetErrorBoundary}
+              className="bg-primary-cta hover:bg-primary-cta-hover focus:outline-none focus:ring-2 focus:ring-primary-cta focus:ring-offset-2"
+              aria-label="Try again to recover from error"
+            >
+              Try Again
+            </Button>
+            <Button
+              onClick={() => window.location.reload()}
+              variant="outline"
+              aria-label="Refresh the entire page"
+            >
+              Refresh Page
+            </Button>
+          </div>
           <Button
-            onClick={resetErrorBoundary}
-            className="bg-primary-cta hover:bg-primary-cta-hover focus:outline-none focus:ring-2 focus:ring-primary-cta focus:ring-offset-2"
-            aria-label="Try again to recover from error"
-          >
-            Try Again
-          </Button>
-          <Button
-            onClick={() => window.location.reload()}
+            onClick={() => router.push("/")}
             variant="outline"
-            aria-label="Refresh the entire page"
+            className="w-full"
+            aria-label="Go back to homepage"
           >
-            Refresh Page
+            <Home className="w-4 h-4 mr-2" />
+            Go Back to Homepage
           </Button>
         </div>
         {process.env.NODE_ENV === "development" && error && (

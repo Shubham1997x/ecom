@@ -1,7 +1,7 @@
 "use client";
 
 import { ErrorBoundary } from "react-error-boundary";
-import { ErrorFallback } from "@/components/ErrorFallback";
+import { ErrorFallback } from "@/components/error/ErrorFallback";
 import type { ErrorInfo } from "react";
 
 // Error logging function for production
